@@ -15,11 +15,7 @@ Installation
 ------------
 .. code-block:: bash
 
-    $ git clone <url>
-
-    $ cd nest_reset
-
-    $ pip install -e .
+    $ pip install nest_reset
 
 
 Requirements
