@@ -13,7 +13,7 @@ from nest_reset import __version__
 
 @click.command(context_settings=dict(help_option_names=['-h', '--help']))
 @click.version_option(__version__, '-v', '--version')
-@click.argument('temperature')
+@click.argument('temperature', type=int)
 @click.option(
     '-i',
     '--client-id',
