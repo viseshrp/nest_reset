@@ -14,7 +14,27 @@ from nest_reset import __version__
 @click.command(context_settings=dict(help_option_names=['-h', '--help']))
 @click.version_option(__version__, '-v', '--version')
 @click.argument('temperature')
-def main(temperature=None):
+@click.option(
+    '-i',
+    '--client-id',
+    prompt="Please enter the Client ID to continue",
+    hide_input=True,
+    required=True,
+    type=str,
+    envvar="NEST_CLIENT_ID",
+    help="Your NEST client ID"
+)
+@click.option(
+    '-s',
+    '--client-secret',
+    prompt="Please enter the Client secret to continue",
+    hide_input=True,
+    required=True,
+    type=str,
+    envvar="NEST_CLIENT_SECRET",
+    help="Your NEST client secret"
+)
+def main(temperature, client_id, client_secret):
     """
     Simple CLI tool to listen for changes in NEST thermostat and reset the temperature back
 
@@ -24,8 +44,7 @@ def main(temperature=None):
 
     """
     try:
-        click.echo("Listening for changes in your NEST thermostat...")
-        run(temperature)
+        run(temperature, client_id, client_secret)
     except Exception as e:
         # all other exceptions
         raise click.ClickException(e)
