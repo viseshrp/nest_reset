@@ -15,7 +15,7 @@ Installation
 ------------
 .. code-block:: bash
 
-    $ pip install nest-reset
+    $ pip install -U nest-reset
 
 
 Requirements
