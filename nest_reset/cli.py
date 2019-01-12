@@ -40,7 +40,7 @@ def main(temperature, client_id, client_secret):
 
     Example usages:
 
-    nest_reset 74
+    nest-reset 74
 
     """
     try:

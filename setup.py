@@ -29,7 +29,7 @@ setup(
     version=VERSION,
     description=DESCRIPTION,
     long_description=README + '\n\n' + HISTORY,
-    keywords='nest_reset',
+    keywords='nest_reset nest nest-reset',
     author=AUTHOR,
     author_email=EMAIL,
     url=URL,
@@ -54,7 +54,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'nest_reset=nest_reset.__main__:main',
+            'nest-reset=nest_reset.__main__:main',
         ],
     },
     python_requires=REQUIRES_PYTHON,

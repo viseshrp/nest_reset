@@ -15,7 +15,7 @@ Installation
 ------------
 .. code-block:: bash
 
-    $ pip install nest_reset
+    $ pip install nest-reset
 
 
 Requirements
@@ -30,7 +30,7 @@ Features
 
 .. code-block:: bash
 
-    $ nest_reset 74
+    $ nest-reset 74
     # starts monitoring your thermostat and resets the temp to 74F whenever it detects
     # someone changing it
 
