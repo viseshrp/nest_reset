@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 
 # Package meta-data.
 NAME = 'nest_reset'
-VERSION = '0.1.0'
+VERSION = '0.1.1'
 DESCRIPTION = "Simple CLI tool to listen for changes in NEST thermostat and reset the temperature back"
 AUTHOR = "Visesh Prasad"
 EMAIL = 'viseshrprasad@gmail.com'
