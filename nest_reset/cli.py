@@ -8,7 +8,9 @@ from __future__ import unicode_literals  # unicode support for py2
 import click
 
 from .nest_reset import run
-from nest_reset import __version__
+from . import __version__
+
+click.disable_unicode_literals_warning = True
 
 
 @click.command(context_settings=dict(help_option_names=['-h', '--help']))
@@ -17,9 +19,7 @@ from nest_reset import __version__
 @click.option(
     '-i',
     '--client-id',
-    prompt="Please enter the Client ID to continue",
-    hide_input=True,
-    required=True,
+    required=False,
     type=str,
     envvar="NEST_CLIENT_ID",
     help="Your NEST client ID"
@@ -27,9 +27,7 @@ from nest_reset import __version__
 @click.option(
     '-s',
     '--client-secret',
-    prompt="Please enter the Client secret to continue",
-    hide_input=True,
-    required=True,
+    required=False,
     type=str,
     envvar="NEST_CLIENT_SECRET",
     help="Your NEST client secret"
@@ -41,13 +39,12 @@ def main(temperature, client_id, client_secret):
     Example usages:
 
     nest-reset 74
-
     """
     try:
         run(temperature, client_id, client_secret)
     except Exception as e:
         # all other exceptions
-        raise click.ClickException(e)
+        raise click.ClickException(str(e))
 
 
 if __name__ == "__main__":

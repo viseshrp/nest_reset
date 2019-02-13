@@ -39,9 +39,28 @@ def run(temp, client_id, client_secret):
     :param client_secret: for nest auth
     :return: None
     """
+    token = read_access_token()
+    if not token:
+        # prompt for id and secret
+        if not client_id:
+            client_id = click.prompt(
+                "Please enter the Client ID to continue",
+                type=str,
+                show_default=False,
+                hide_input=True,
+            )
+
+        if not client_secret:
+            client_secret = click.prompt(
+                "Please enter the Client Secret to continue",
+                type=str,
+                show_default=False,
+                hide_input=True,
+            )
+
     # init
     nest_data = nest.Nest(client_id=client_id, client_secret=client_secret,
-                          access_token=read_access_token())
+                          access_token=token)
 
     # check auth
     if nest_data.authorization_required:
@@ -56,7 +75,7 @@ def run(temp, client_id, client_secret):
     thermostats = nest_data.structures.pop(0).thermostats
 
     if not thermostats:
-        click.ClickException("No thermostat found in your account.")
+        click.ClickException("No thermostat registered with your NEST account.")
 
     # get thermostat
     thermostat = thermostats.pop(0)
