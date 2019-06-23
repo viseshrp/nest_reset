@@ -11,7 +11,7 @@ import click
 import nest
 
 API_CALL_DELAY_SECONDS = 3
-TOKEN_PATH = os.path.expanduser('~') + '/' + '.nrtk'
+TOKEN_PATH = os.path.join(os.path.expanduser('~'), '.nrtk')
 
 
 def write_access_token(token):
