@@ -16,7 +16,7 @@ TOKEN_PATH = os.path.expanduser('~') + '/' + '.nrtk'
 
 def write_access_token(token):
     # save to file
-    with open(TOKEN_PATH, 'w') as file:
+    with open(TOKEN_PATH, 'w', encoding='utf-8') as file:
         file.write(token)
 
 
@@ -24,7 +24,7 @@ def read_access_token():
     # read access token if file is present
     token = ''
     if os.path.isfile(TOKEN_PATH):
-        with open(TOKEN_PATH, 'r') as file:
+        with open(TOKEN_PATH, 'r', encoding='utf-8') as file:
             token = file.read()
 
     return token
